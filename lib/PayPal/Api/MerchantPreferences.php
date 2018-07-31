@@ -80,6 +80,9 @@ class MerchantPreferences extends PayPalModel
      */
     public function setCancelUrl($cancel_url)
     {
+        if (null === $cancel_url) {
+            return $this;
+        }
         UrlValidator::validate($cancel_url, "CancelUrl");
         $this->cancel_url = $cancel_url;
         return $this;
@@ -104,6 +107,9 @@ class MerchantPreferences extends PayPalModel
      */
     public function setReturnUrl($return_url)
     {
+        if (null === $return_url) {
+            return $this;
+        }
         UrlValidator::validate($return_url, "ReturnUrl");
         $this->return_url = $return_url;
         return $this;
@@ -128,6 +134,9 @@ class MerchantPreferences extends PayPalModel
      */
     public function setNotifyUrl($notify_url)
     {
+        if (null === $notify_url) {
+            return $this;
+        }
         UrlValidator::validate($notify_url, "NotifyUrl");
         $this->notify_url = $notify_url;
         return $this;
